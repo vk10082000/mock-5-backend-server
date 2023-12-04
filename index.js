@@ -1,6 +1,8 @@
 const express=require("express");
 const cors=require("cors");
 const { connection } = require("./db");
+const contactsRouter = require("./Routes/contacts.Route");
+
 
 const app=express();
 
@@ -10,6 +12,8 @@ app.use(cors());
 app.get("",(req,res)=>{
     res.send("BACKEND IS RUNNING->>>")
 })
+app.use("/",contactsRouter)
+
 
 app.listen(8080,async()=>{
     try {
